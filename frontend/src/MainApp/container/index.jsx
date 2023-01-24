@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import {
+  Routes,
+  Route
+} from "react-router-dom";
 
 import { NavBar, ListSection } from '../../Components'
 
@@ -9,12 +13,7 @@ import '../../Style/index.css'
 import listItems from '../../Constants/fakeList'
 
 const AppWrapper = styled.div``
-/**
- * Main Application
- *
- * @version 1.0.0
- * @author [Sam Barros](https://github.com/samaronybarros)
- */
+
 class App extends Component {
   render () {
     return (

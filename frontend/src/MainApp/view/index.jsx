@@ -1,4 +1,4 @@
-import AppView from '../view'
+import AppView from '.'
 
 // We can use this container to connect with the store
 
