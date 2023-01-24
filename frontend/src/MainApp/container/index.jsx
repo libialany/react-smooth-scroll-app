@@ -1,26 +1,22 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import {
   Routes,
   Route
 } from "react-router-dom";
-
-import { NavBar, ListSection } from '../../Components'
-
-import logo from '../../Image/everestate.svg'
 import '../../Style/index.css'
-
-import listItems from '../../Constants/fakeList'
-
-const AppWrapper = styled.div``
-
+import LoginForm from '../../Components/Forms/LoginForm';
+import RegisterForm from '../../Components/Forms/RegisterForm';
+import Page from '../../Components/Page';
 class App extends Component {
-  render () {
+  render() {
     return (
-      <AppWrapper>
-        <NavBar logo={logo} list={listItems} />
-        <ListSection list={listItems} />
-      </AppWrapper>
+      <div>
+        <Routes>
+          <Route path='/login' element={<LoginForm/>}></Route>
+          <Route path='/register' element={<RegisterForm/>}></Route>
+          <Route path='/page' element={<Page/>}></Route>
+        </Routes>
+      </div>
     )
   }
 }
