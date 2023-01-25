@@ -30,7 +30,7 @@ app.use(cookieParser(process.env.SECRETKEY));
 app.use(passport.initialize());
 app.use(passport.session());
 require("./passport-config")(passport);
-
+app.use(indexroutes);
 // ---- start server
 app.listen(4000, ()=>{
     console.log("Server Has Started");

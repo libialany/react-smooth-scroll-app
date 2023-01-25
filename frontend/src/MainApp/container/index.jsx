@@ -3,7 +3,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import '../../Style/index.css'
+import '../../Style/index.css';
 import LoginForm from '../../Components/Forms/LoginForm';
 import RegisterForm from '../../Components/Forms/RegisterForm';
 import Page from '../../Components/Page';
