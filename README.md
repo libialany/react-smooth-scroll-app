@@ -1,3 +1,5 @@
+### Setup
+
 Backend:
 
 add in .env:
@@ -26,3 +28,7 @@ add in .env:
 ```
 SKIP_PREFLIGHT_CHECK=true
 ```
+
+### Result
+
+
