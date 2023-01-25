@@ -8,11 +8,26 @@ router.get("/user", checkAuthenticated, (req, res) => {
     res.send(req.user);
 });
 
-router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true
-}))
+router.post('/login', checkNotAuthenticated, (req, res, next) => {
+    passport.authenticate("local", (err, user, info) => {
+        if (err) throw err;
+        if (!user) return res.status(400).json({
+            success: false,
+            message: 'Not User Found',
+            redirectUrl: '/login'
+        });
+        else {
+            req.logIn(user, (err) => {
+                if (err) throw err;
+                // res.send("Successfully Authenticated");
+                return res.status(200).json({
+                    success: true,
+                    redirectUrl: '/page'
+                })
+            });
+        }
+    })(req, res, next);
+});
 
 router.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
@@ -26,9 +41,9 @@ router.post('/register', checkNotAuthenticated, async (req, res) => {
             password: hashedPassword
         }
         await pool.query('INSERT INTO tbuser set ?', [newUser]);
-        return res.send("User Created");
+        res.send("User Created");
     } catch {
-        return res.send("Error");
+        res.send("Error");
     }
 })
 router.delete('/logout', checkNotAuthenticated, (req, res) => {
