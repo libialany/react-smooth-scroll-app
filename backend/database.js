@@ -6,7 +6,6 @@ var  database = {
     password:process.env.DBPASSWD,
     database:process.env.DBNAME
 }
-console.log(database);
 const { promisify } = require('util')
 const pool = mysql.createPool(database)
 pool.getConnection(function(err, connection){
