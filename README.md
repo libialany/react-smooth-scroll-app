@@ -31,4 +31,4 @@ SKIP_PREFLIGHT_CHECK=true
 
 ### Result
 
-
+![](https://github.com/libialany/react-smooth-scroll-app/blob/dev/demo.gif)
