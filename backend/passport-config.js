@@ -9,6 +9,9 @@ function initialize(passport) {
     }
     const authenticator = async (email, password, done) => {
         const data = await pool.query("select * from tbuser where email like ?", [email])
+        if (!data.length){
+            return done(null, false, { message: 'No user with that email' })
+        }
         const user = JSON.parse(JSON.stringify(data[0]))
         if (!user) {
             return done(null, false, { message: 'No user with that email' })
